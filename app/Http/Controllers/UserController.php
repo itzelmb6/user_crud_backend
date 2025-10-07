@@ -36,7 +36,7 @@ class UserController extends Controller
                 'name' => 'required|string|max:255',
                 'email' => 'required|email|unique:users',
                 'phone' => 'required|string',
-                'rol' => 'sometimes|string',
+                'rol' => 'required|string|in:admin,editor,user',
                 'password' => 'required|string|min:6'
             ]);
 
@@ -45,7 +45,7 @@ class UserController extends Controller
                 $request->name,
                 $request->email,
                 $request->phone,
-                $request->rol ?? 'user', // Valor por defecto 'user'
+                $request->rol, 
                 $request->password
             ]);
 

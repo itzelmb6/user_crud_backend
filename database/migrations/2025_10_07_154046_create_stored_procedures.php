@@ -18,7 +18,7 @@ return new class extends Migration
             END
         ");
 
-        // Procedimiento para crear usuario (ahora con rol y password)
+        // Procedimiento para crear usuario 
         DB::unprepared("
             DROP PROCEDURE IF EXISTS sp_create_user;
             CREATE PROCEDURE sp_create_user(
