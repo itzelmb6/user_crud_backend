@@ -6,7 +6,7 @@ Backend completo para sistema de gestión de usuarios desarrollado en Laravel. P
 ## 🛠️ Tecnologías Utilizadas
 ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
-![XAMPP](https://img.shields.io/badge/XAMPP?style=for-the-badge&logo=xampp&logoColor=white)
+![XAMPP](https://img.shields.io/badge/XAMPP-FB7A24?style=for-the-badge&logo=xampp&logoColor=white)
 
 ## 📸 Capturas de Pantalla
 
