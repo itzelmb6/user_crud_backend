@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -40,13 +41,15 @@ class UserController extends Controller
                 'password' => 'required|string|min:6'
             ]);
 
+            $hashedPassword = Hash::make($request->password);
+
             // Usar procedimiento almacenado para crear usuario
             $user = DB::select('CALL sp_create_user(?, ?, ?, ?, ?)', [
                 $request->name,
                 $request->email,
                 $request->phone,
                 $request->rol, 
-                $request->password
+                $hashedPassword 
             ]);
 
             return response()->json($user[0], Response::HTTP_CREATED);

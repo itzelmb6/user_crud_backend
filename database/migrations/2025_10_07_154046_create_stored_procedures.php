@@ -21,21 +21,31 @@ return new class extends Migration
         // Procedimiento para crear usuario 
         DB::unprepared("
             DROP PROCEDURE IF EXISTS sp_create_user;
+
             CREATE PROCEDURE sp_create_user(
                 IN p_name VARCHAR(255),
                 IN p_email VARCHAR(255),
                 IN p_phone VARCHAR(255),
-                IN p_rol VARCHAR(255),
+                IN p_rol VARCHAR(50),  
                 IN p_password VARCHAR(255)
             )
             BEGIN
+                -- Insertar usuario
                 INSERT INTO users (name, email, phone, rol, password, created_at, updated_at)
                 VALUES (p_name, p_email, p_phone, p_rol, p_password, NOW(), NOW());
                 
-                SELECT id, name, email, phone, rol, created_at, updated_at 
+                -- Devolver usuario creado (sin password)
+                SELECT 
+                    id,
+                    name,
+                    email,
+                    phone,
+                    rol,
+                    created_at,
+                    updated_at
                 FROM users 
                 WHERE id = LAST_INSERT_ID();
-            END
+            END 
         ");
 
         // Procedimiento para actualizar usuario
